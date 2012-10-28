@@ -9,7 +9,7 @@ from pythonbrew.log import logger
 class ListCommand(Command):
     name = "list"
     usage = "%prog [VERSION]"
-    summary = "List the installed all pythons"
+    summary = "List the installed all pythonidae"
     
     def __init__(self):
         super(ListCommand, self).__init__()
@@ -35,7 +35,7 @@ class ListCommand(Command):
             self.installed(options, args)
     
     def installed(self, options, args):
-        logger.log("# pythonbrew pythons")
+        logger.log("# pythonbrew pythonidae")
         cur = get_using_python_pkgname()
         for d in sorted(os.listdir(PATH_PYTHONS)):
             if cur and cur == d:

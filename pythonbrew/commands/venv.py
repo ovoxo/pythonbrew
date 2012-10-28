@@ -4,7 +4,7 @@ from pythonbrew.basecommand import Command
 from pythonbrew.define import PATH_PYTHONS, PATH_VENVS, PATH_HOME_ETC_VENV,\
     PATH_ETC, VIRTUALENV_DLSITE, PATH_DISTS
 from pythonbrew.util import Package, \
-    is_installed, get_installed_pythons_pkgname, get_using_python_pkgname,\
+    is_installed, get_installed_pythonidae_pkgname, get_using_python_pkgname,\
     untar_file, Subprocess, rm_r
 from pythonbrew.log import logger
 from pythonbrew.downloader import Downloader
@@ -175,7 +175,7 @@ source '%(activate)s'
         
     def run_command_list(self, options, args):
         if options.all:
-            for pkgname in get_installed_pythons_pkgname():
+            for pkgname in get_installed_pythonidae_pkgname():
                 workon_home = os.path.join(PATH_VENVS, pkgname)
                 logger.log("# virtualenv for %(pkgname)s (found in %(workon_home)s)" % {'pkgname': pkgname, 'workon_home': workon_home})
                 if os.path.isdir(workon_home):

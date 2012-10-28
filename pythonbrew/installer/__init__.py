@@ -20,7 +20,7 @@ Please add the following line to the end of your ~/.%(yourshrc)s
   [[ -s "%(PATH_ETC)s/%(shrc)s" ]] && source "%(PATH_ETC)s/%(shrc)s"
 
 After that, exit this shell, start a new one, and install some fresh
-pythons:
+pythonidae:
 
   pythonbrew install 2.7.2
   pythonbrew install 3.2
@@ -48,7 +48,7 @@ The pythonbrew is installed as:
   %(ROOT)s
 
 After that, exit this shell, start a new one, and install some fresh
-pythons:
+pythonidae:
 
   pythonbrew install 2.7.2
   pythonbrew install 3.2

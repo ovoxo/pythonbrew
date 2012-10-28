@@ -92,7 +92,7 @@ def test_08_py():
     fp.close()
     # Runs the python script
     c = PyCommand()
-    c.run_command(Options({'pythons':[], 'verbose':False, 'bin':"python", 'options':""}), 
+    c.run_command(Options({'pythonidae':[], 'verbose':False, 'bin':"python", 'options':""}), 
                   [TESTPY_FILE])
 
 def test_09_buildout():

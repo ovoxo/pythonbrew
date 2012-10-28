@@ -18,7 +18,7 @@ if not ROOT:
     ROOT = os.path.join(os.environ["HOME"],".pythonbrew")
 
 # directories
-PATH_PYTHONS = os.path.join(ROOT,"pythons")
+PATH_PYTHONS = os.path.join(ROOT,"pythonidae")
 PATH_BUILD = os.path.join(ROOT,"build")
 PATH_DISTS = os.path.join(ROOT,"dists")
 PATH_ETC = os.path.join(ROOT,"etc")

@@ -12,7 +12,7 @@ class UninstallCommand(Command):
     
     def run_command(self, options, args):
         if args:
-            # Uninstall pythons
+            # Uninstall pythonidae
             for arg in args:
                 pkg = Package(arg)
                 pkgname = pkg.name

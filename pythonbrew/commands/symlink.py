@@ -15,7 +15,7 @@ class SymlinkCommand(Command):
         super(SymlinkCommand, self).__init__()
         self.parser.add_option(
             "-p", "--python",
-            dest="pythons",
+            dest="pythonidae",
             action="append",
             default=[],
             help="Use the specified python version.",
@@ -44,16 +44,16 @@ class SymlinkCommand(Command):
     def run_command(self, options, args):
         if options.default:
             # create only one instance as default of an application.
-            pythons = self._get_pythons([options.default])
-            for pkgname in pythons:
+            pythonidae = self._get_pythonidae([options.default])
+            for pkgname in pythonidae:
                 if args:
                     bin = args[0]
                     self._symlink(bin, bin, pkgname)
                 else:
                     self._symlink('python', 'py', pkgname)
         elif options.venv:
-            if options.pythons:
-                pkgname = Package(options.pythons[0]).name
+            if options.pythonidae:
+                pkgname = Package(options.pythonidae[0]).name
             else:
                 pkgname = get_using_python_pkgname()
             if not is_installed(pkgname):
@@ -74,8 +74,8 @@ class SymlinkCommand(Command):
                 dstbin = 'py%s-%s' % (pkg.version, options.venv)
                 self._symlink('python', dstbin, pkgname)
         else:
-            pythons = self._get_pythons(options.pythons)
-            for pkgname in pythons:
+            pythonidae = self._get_pythonidae(options.pythonidae)
+            for pkgname in pythonidae:
                 if options.remove:
                     # remove symlinks
                     for bin in os.listdir(PATH_BIN):
@@ -107,11 +107,11 @@ class SymlinkCommand(Command):
         else:
             logger.error("%s was not found in your path." % src)
     
-    def _get_pythons(self, _pythons):
+    def _get_pythonidae(self, _pythonidae):
         """Get the installed python versions list.
         """
-        pythons = [Package(p).name for p in _pythons]
+        pythonidae = [Package(p).name for p in _pythonidae]
         return [d for d in sorted(os.listdir(PATH_PYTHONS)) 
-                if not pythons or d in pythons]
+                if not pythonidae or d in pythonidae]
 
 SymlinkCommand()

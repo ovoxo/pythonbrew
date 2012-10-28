@@ -239,7 +239,7 @@ def get_using_python_pkgname():
 
     return None
 
-def get_installed_pythons_pkgname():
+def get_installed_pythonidae_pkgname():
     """Get the installed python versions list."""
     return [d for d in sorted(os.listdir(PATH_PYTHONS))]
 

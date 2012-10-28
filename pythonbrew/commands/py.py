@@ -9,13 +9,13 @@ from pythonbrew.log import logger
 class PyCommand(Command):
     name = "py"
     usage = "%prog PYTHON_FILE"
-    summary = "Runs a named python file against specified and/or all pythons"
+    summary = "Runs a named python file against specified and/or all pythonidae"
     
     def __init__(self):
         super(PyCommand, self).__init__()
         self.parser.add_option(
             "-p", "--python",
-            dest="pythons",
+            dest="pythonidae",
             action="append",
             default=[],
             help="Use the specified python version.",
@@ -34,8 +34,8 @@ class PyCommand(Command):
         if not args:
             self.parser.print_help()
             sys.exit(1)
-        pythons = self._get_pythons(options.pythons)
-        for d in pythons:
+        pythonidae = self._get_pythonidae(options.pythonidae)
+        for d in pythonidae:
             if options.verbose:
                 logger.info('`%s` running...' % d)
             path = os.path.join(PATH_PYTHONS, d, 'bin', args[0])
@@ -48,9 +48,9 @@ class PyCommand(Command):
                 else:
                     logger.error('%s: No such file or directory.' % path)
     
-    def _get_pythons(self, _pythons):
-        pythons = [Package(p).name for p in _pythons]
+    def _get_pythonidae(self, _pythonidae):
+        pythonidae = [Package(p).name for p in _pythonidae]
         return [d for d in sorted(os.listdir(PATH_PYTHONS))
-                if not pythons or d in pythons]
+                if not pythonidae or d in pythonidae]
 
 PyCommand()
